@@ -10,5 +10,6 @@ type router struct{}
 
 func (router *router) InitRouter() *mux.Router {
 	r := mux.NewRouter()
+
 	return r
 }
