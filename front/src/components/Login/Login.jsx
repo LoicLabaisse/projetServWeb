@@ -25,7 +25,7 @@ const Login = () => {
 
   const handleSubmit = () => {
       axios.post(`${process.env.REACT_APP_API_MOVIE}/login`, login).then(res => {
-          if( res.status ===200 || res.status === 202){
+          if( res.status === 200 || res.status === 202){
               navigate("/home")
           }
       }).catch(err=>{
