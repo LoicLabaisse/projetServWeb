@@ -13,7 +13,7 @@ const Navbar =()=>{
             <nav className= "navBar-nav">
             <ul className='navBar-list'>
                 <li>
-                    <span>Bonjour Mr ....</span>
+                    <span className='navBar-list'>Bonjour Mr ....</span>
                 </li>
                 <li>
                     <a  className="navBar-list" href="/#project"><span>Deconnection</span></a>

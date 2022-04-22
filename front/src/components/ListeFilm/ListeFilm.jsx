@@ -7,7 +7,7 @@ const ListeFilm = () => {
   useEffect(() => {
     axios
       .get(
-        `${process.env.REACT_APP_API_MOVIE}discover/movie?api_key=${process.env.REACT_APP_API_MOVIE_KEY}&certification_country=US&certification.lte=G&sort_by=popularity.desc&language=fr-FR&page=2`
+        `${process.env.REACT_APP_API_MOVIE}/films/`
       )
       .then((res) =>
         setDataMovie(
