@@ -3,8 +3,11 @@ import "./login.css";
 import { sha256 } from "js-sha256";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getUsers } from "../../redux/userSlice/userSlice";
 
 const Login = () => {
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const [message,setMessage] = useState(false)
   const [login, setLogin] = useState({
@@ -23,10 +26,12 @@ const Login = () => {
 
   console.log(login);
 
-  const handleSubmit = () => {
-      axios.post(`${process.env.REACT_APP_API_MOVIE}/login`, login).then(res => {
+  const handleSubmit = (e) => {
+      e.preventDefault()
+      axios.get(`${process.env.REACT_APP_API_MOVIE}/login/${login.email}/${login.password}`).then(res => {
           if( res.status === 200 || res.status === 202){
-              navigate("/home")
+              navigate('/accueil')
+                dispatch(getUsers(res.data))
           }
       }).catch(err=>{
         console.log(err)
@@ -59,8 +64,9 @@ const Login = () => {
                   <p>Vos informations sont incorrects</p>
               )
           }
+          <button onClick={handleSubmit} type="submit" className="login_button">Connexion</button>
         </form>
-        <button onClick={handleSubmit} className="login_button">Connexion</button>
+        
       </div>
     </div>
   );

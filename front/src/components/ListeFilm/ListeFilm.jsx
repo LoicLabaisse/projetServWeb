@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./listeFilm.css"
+import { useSelector } from "react-redux";
 
 const ListeFilm = () => {
   const [dataMovie, setDataMovie] = useState([]);
+  const user = useSelector(state=>state.user)
   useEffect(() => {
     axios
       .get(
