@@ -37,7 +37,6 @@ const Login = () => {
         console.log(err)
         setMessage(true)
       })
-      console.log('ok')
   }
 
   return (
@@ -64,6 +63,7 @@ const Login = () => {
                   <p>Vos informations sont incorrects</p>
               )
           }
+          <a href="/register"> Pas encore inscrit ? Inscrivez-vous gratuitement</a>
           <button onClick={handleSubmit} type="submit" className="login_button">Connexion</button>
         </form>
         

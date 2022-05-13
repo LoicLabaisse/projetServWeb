@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import './navbar.css'
 
 
@@ -16,7 +15,7 @@ const Navbar =()=>{
             <nav className= "navBar-nav">
             <ul className='navBar-list'>
                 <li>
-                    <span className='navBar-list'>Bonjour Mr {user.last_name}</span>
+                    <span className='navBar-list'>Bonjour {user.last_name}</span>
                 </li>
                 <li>
                     <a  className="navBar-list" href="/#project"><span>Deconnection</span></a>

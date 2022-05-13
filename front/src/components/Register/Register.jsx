@@ -12,6 +12,8 @@ const Register = () => {
     password: null,
   });
 
+  const navigate=useNavigate()
+
   const handleRegister = (e) => {
     const { name, value } = e.target;
     if (name === "password") {
@@ -30,8 +32,10 @@ const Register = () => {
         `${process.env.REACT_APP_API_MOVIE}/register/${register.first_name}/${register.last_name}/${register.email}/${register.password}`
       )
       .then((res) => {
-       console.log(res.status)
-        console.log(res.data)
+        console.log(res.status);
+       if(res.status === 200){
+         navigate("/")
+       }
       })
       .catch((err) => {
         console.log(err);
@@ -49,6 +53,7 @@ const Register = () => {
             name="first_name"
             type="text"
             className="register_input"
+            required
           />
           <label className="register_label">Prénom:</label>
           <input
@@ -56,6 +61,7 @@ const Register = () => {
             name="last_name"
             type="text"
             className="register_input"
+            required
           />
           <label className="register_label">Email:</label>
           <input
@@ -63,6 +69,7 @@ const Register = () => {
             name="email"
             type="email"
             className="register_input"
+            required
           />
           <label className="register_label">Mot de passe :</label>
           <input
@@ -70,6 +77,7 @@ const Register = () => {
             name="password"
             type="password"
             className="register_input"
+            required
           />
           <button
             onClick={handleSubmit}

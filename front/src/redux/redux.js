@@ -6,6 +6,7 @@ import thunk from 'redux-thunk'
 import storage from 'redux-persist/lib/storage' 
 import { composeWithDevTools } from '@redux-devtools/extension'
 import { userSLice } from './userSlice/userSlice'
+import { listeFilmSlice } from './listeFilmSlice/listeFilmSlice'
 
 
 const persistConfig ={
@@ -17,6 +18,7 @@ const persistConfig ={
 
 const reducer = combineReducers({
     user: userSLice.reducer,
+    listefilm : listeFilmSlice.reducer,
     persistConfig
 })
 
